@@ -12,6 +12,7 @@ langchain-openai = "^0.1.21"
 langchain-community = "^0.2.12"
 langgraph = "^0.2.3"
 langchain-experimental = "^0.0.64"
+duckduckgo-search = "^6.2.9"
 
 
 [build-system]

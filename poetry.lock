@@ -341,6 +341,25 @@ url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 reference = "tsinghua"
 
 [[package]]
+name = "click"
+version = "8.1.7"
+description = "Composable command line interface toolkit"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "click-8.1.7-py3-none-any.whl", hash = "sha256:ae74fb96c20a0277a1d615f1e4d73c8414f5a98db8b799a7931d1582f3390c28"},
+    {file = "click-8.1.7.tar.gz", hash = "sha256:ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"},
+]
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[package.source]
+type = "legacy"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+reference = "tsinghua"
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -386,6 +405,30 @@ files = [
     {file = "distro-1.9.0-py3-none-any.whl", hash = "sha256:7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2"},
     {file = "distro-1.9.0.tar.gz", hash = "sha256:2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed"},
 ]
+
+[package.source]
+type = "legacy"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+reference = "tsinghua"
+
+[[package]]
+name = "duckduckgo-search"
+version = "6.2.9"
+description = "Search for words, documents, images, news, maps and text translation using the DuckDuckGo.com search engine."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "duckduckgo_search-6.2.9-py3-none-any.whl", hash = "sha256:c0bc2a78595c39e30aaedb7bca5a5f83e1932fbed25393e61b4b3ffb10cf99bb"},
+    {file = "duckduckgo_search-6.2.9.tar.gz", hash = "sha256:7c0f89faec882278f9ffc9900fe9118f6573cc694eff3d39ed9bbd3ae2f1f26d"},
+]
+
+[package.dependencies]
+click = ">=8.1.7"
+primp = ">=0.6.0"
+
+[package.extras]
+dev = ["mypy (>=1.11.1)", "pytest (>=8.3.1)", "pytest-asyncio (>=0.23.8)", "ruff (>=0.6.1)"]
+lxml = ["lxml (>=5.2.2)"]
 
 [package.source]
 type = "legacy"
@@ -1300,6 +1343,31 @@ url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 reference = "tsinghua"
 
 [[package]]
+name = "primp"
+version = "0.6.0"
+description = "HTTP client that can impersonate web browsers, mimicking their headers and `TLS/JA3/JA4/HTTP2` fingerprints"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "primp-0.6.0-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:e74173d87b232d276b0a64ce21717b993e2460677cb81d3289965a80f6675abd"},
+    {file = "primp-0.6.0-cp38-abi3-macosx_11_0_arm64.whl", hash = "sha256:e7c2f0443afd3064efbe267e0515657173531bc89ee36ea21794edf08d931be9"},
+    {file = "primp-0.6.0-cp38-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:6e16aaab98bddea6fef90337e170fd2c232d399fb75d36dda53dd9f956cd9eeb"},
+    {file = "primp-0.6.0-cp38-abi3-manylinux_2_34_aarch64.whl", hash = "sha256:f36ff625e1531f051bdad68d4cd8832ba8c7f1dec7b430af8206562b37656a28"},
+    {file = "primp-0.6.0-cp38-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:e941355ca729eb277613f9c5ee0b0f4273d3df9440a177dccc1780ad0c752858"},
+    {file = "primp-0.6.0-cp38-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:74585b3fb460dd13379b36d6c7ebc1efb24e92d21696476b93c4b97a2638f4ac"},
+    {file = "primp-0.6.0-cp38-abi3-win_amd64.whl", hash = "sha256:cf391210e28397ddbbbea7216c8fe72caa61a3a407e7faba351825ecf6ff3bec"},
+    {file = "primp-0.6.0.tar.gz", hash = "sha256:25ef0a1be619a621f197ed9d9768cedde2b4f1e8cd0764b609b06aa5773b4de9"},
+]
+
+[package.extras]
+dev = ["certifi", "pytest (>=8.1.1)"]
+
+[package.source]
+type = "legacy"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+reference = "tsinghua"
+
+[[package]]
 name = "pydantic"
 version = "2.8.2"
 description = "Data validation using Python type hints"
@@ -1997,4 +2065,4 @@ reference = "tsinghua"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "7594d344019a8a8f35208a9ca7fd9205f580ff95ae890d89ef1c6b220f9b558f"
+content-hash = "b4ea5c8419a6ef0ba2b1286d8d85328309c1ff208b17e73829a8d7456a4765e4"
