@@ -5,7 +5,7 @@ from langgraph.graph.message import MessagesState
 from langchain_core.messages import AIMessage,RemoveMessage,SystemMessage
 from langchain.prompts import StringPromptTemplate,PromptTemplate,ChatPromptTemplate
 from langchain_experimental.tools import PythonREPLTool
-from langchain_community.tools import DuckDuckGoSearchRun,QuerySQLDataBaseTool,InfoSQLDatabaseTool
+from langchain_community.tools import DuckDuckGoSearchRun,QuerySQLDataBaseTool,InfoSQLDatabaseTool,ListSQLDatabaseTool
 from langgraph.prebuilt import ToolNode
 from typing import Literal
 from langchain_core.tools import Tool
@@ -28,7 +28,8 @@ duckduckgo_tool = DuckDuckGoSearchRun()
 db = SQLDatabase.from_uri("sqlite:///abc.sqlite")
 db_query = QuerySQLDataBaseTool(db=db)
 db_info = InfoSQLDatabaseTool(db=db)
-tools = [db_query,db_info]
+db_tables = ListSQLDatabaseTool(db=db)
+tools = [db_query]
 tools_node = ToolNode(tools=tools) 
 llm_with_tools = llm.bind_tools(tools,strict=True)
 
@@ -48,10 +49,10 @@ def node1(state:MessagesState):
     chatPrompt = ChatPromptTemplate.from_messages(
         messages = [('system','必要时使用给定的数据库工具,\n涉及的表名:{tables}'),
                     *messages
-                   ])
-    #RunnablePassthrough.assign(tables=db_info.invoke("test")) \
-    chain = db_info | {"tables":RunnablePassthrough()} | chatPrompt | llm_with_tools
-    res = chain.invoke("test")
+                   ]).partial(tables = db.get_context())
+    
+    chain = chatPrompt | llm_with_tools
+    res = chain.invoke({"a":123})
     return {"messages":[res]}
 
 def should_continue(state:MessagesState):
